@@ -5,9 +5,8 @@ import Header from './components/Header'
 function RoutesApp(){
     return(
         <BrowserRouter>        
-            <Header/>       
             <Routes>
-                
+                <Route path='/' element={ <Home/>}/>    
             </Routes>
         </BrowserRouter>
     )

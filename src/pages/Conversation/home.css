@@ -41,7 +41,6 @@
     right: 96%;
     top: 50%;
     transform: translateY(-50%);
-    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/botao-voltar.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -54,7 +53,6 @@
     right: 3%;
     top: 50%;
     transform: translateY(-50%) rotate(19.58deg);
-    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/logo.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -74,7 +72,7 @@
     height: 84px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -800px; /* Altere o valor para ajustar a distância do elemento em relação à parte inferior */
+    bottom: -800px; 
     background: #FAFAFC;
     border: 1px solid #E6E6F0;
     border-radius: 8px;
@@ -87,7 +85,6 @@
     right: 1%;
     top: 50%;
     transform: translateY(-50%);
-    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/mandar.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

@@ -35,15 +35,60 @@
 }
 
 .back_button{
-    box-sizing: border-box;
-
     position: absolute;
-    left: 4.38%;
-    right: 92.15%;
-    top: 3.78%;
-    bottom: 90.12%;
+    width: 80px;
+    height: 55px;
+    right: 96%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/botao-voltar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-    border: 1px solid #FFFFFF;
-    border-radius: 25px;
-    transform: rotate(90deg);
+.img_logo {
+    position: absolute;
+    width: 107.57px;
+    height: 73.12px;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%) rotate(19.58deg);
+    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.background {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #F0F0F7;
+}
+
+.text_box {
+    box-sizing: border-box;
+    position: absolute;
+    width: 1229px;
+    height: 84px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -800px; /* Altere o valor para ajustar a distância do elemento em relação à parte inferior */
+    background: #FAFAFC;
+    border: 1px solid #E6E6F0;
+    border-radius: 8px;
+}
+
+.send_button{
+    position: absolute;
+    width: 80px;
+    height: 55px;
+    right: 1%;
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('C:/Users/fabio/OneDrive/Documentos/GitHub/HelpMindFront/src/images/mandar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }

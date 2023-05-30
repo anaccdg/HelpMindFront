@@ -1,4 +1,4 @@
-import './home.css';
+import './conversation.css';
 import { Link } from 'react-router-dom'
 import Logo from "../../images/logo.png";
 import BtnVoltar from "../../images/botao-voltar.png"

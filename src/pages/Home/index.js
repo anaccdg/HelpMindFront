@@ -9,7 +9,7 @@ function Home(){
             <div className='container'>
                 <img className='descricao' src={Descricao}/>                    
                 <img className='logo' src={Logo}/>                                                    
-                <Link className='button-navegation' to={`/form`}>Preciso de ajuda</Link>
+                <Link className='button-navegation' to={`/Formulario`}>Preciso de ajuda</Link>
                 <h3 className='copyright'>Copyright (c) 2023 Help Mind: Uma Abordagem Preventiva e Acessível à Saúde Mental</h3>
             </div>                      
     )

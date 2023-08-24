@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+      "baseUrl": "./src",
+      "paths": {
+        "~/*": ["./"],
+        "~images/*": ["./images/*"]
+      }
+    },
+    "include": ["./src"]
+}

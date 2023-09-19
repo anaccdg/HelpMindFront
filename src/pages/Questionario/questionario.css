@@ -23,7 +23,7 @@
 
 .form_quest-container {
   width: 1490px;
-  height: 600px;
+  height: 1050px;
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid var(--back-lines-in-white, #E6E6F0);
@@ -41,7 +41,7 @@
   padding: 15px 30px;
   transition: transform 0.2s;
   position: absolute;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
 }
 
@@ -49,20 +49,28 @@
   transform: scale(1.05);
 }
 
+.questionary-text {
+  display: inline-block;
+  vertical-align: middle; 
+  margin-right: 20px; 
+  margin-left: 10px;
+}
+
 
 .lookup select {
-  width: 420px; 
+  width: 420px;
   padding: 10px;
   font-size: 16px;
-  border: 1px solid #5BC0BE; 
-  border-radius: 5px; 
-  background-color: #e1f5f5; 
-  color: #000000; 
+  border: 1px solid #5BC0BE;
+  border-radius: 5px;
+  background-color: #e1f5f5;
+  color: #000000;
   font-weight: bold;
-  cursor: pointer; 
-  outline: none; 
+  cursor: pointer;
+  outline: none;
+  margin-top: 10px;
+  display: inline-block;
   margin-left: 10px; 
-  margin-top: 10px; 
 }
 
 .lookup select:hover {
@@ -70,6 +78,9 @@
 }
 
 .lookup select:focus {
-  border-color: #5BC0BE; 
+  border-color: #5BC0BE;
+  transform: scale(1.05); 
+  transition: transform 0.05s ease; 
 }
+
 

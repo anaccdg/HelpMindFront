@@ -22,6 +22,7 @@ function Form() {
         <div>
             <div className="header">
                 <div className="content">
+                    <Link to="/" className="back_button"></Link>
                     <div className="text-container">
                         <h1 className="title">Bom te ver por aqui! :)</h1>
                         <br />
@@ -83,7 +84,7 @@ function Form() {
                         </ToggleButtonGroup>
                     </div>
                     <div className="button-container">
-                        <Link className="button-navegation" to="/Chat">
+                        <Link className="button_form-navegation" to="/Chat">
                             Conversar
                         </Link>
                     </div>

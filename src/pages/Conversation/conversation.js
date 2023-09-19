@@ -8,7 +8,7 @@ function Conversation() {
         <div className="background"></div>
         <div className="header">
             <div className="img_usuario"></div>
-            <Link to="/" className="back_button"></Link>
+            <Link to="/form" className="back_button"></Link>
             <div className="img_logo"></div>
             <h1 className="apelido">Apelido</h1>
             <div className="user_chat"></div>

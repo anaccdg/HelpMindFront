@@ -48,17 +48,19 @@ html, body {
 .title {
   font-size: 1.25rem;
   margin-bottom: 0.9375rem;
+  margin-left: 40px; 
 }
 
 .subtitle {
   font-size: 0.9375rem;
   color: black;
+  margin-left: 40px; 
 }
 
 .form-container {
   padding: 30px 50px;
   margin: 0 auto;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 60%;
   max-width: 600px;
   border-radius: 15px;
@@ -102,7 +104,7 @@ html, body {
 }
 
 .avatar-wrapper {
-  padding: 13px;
+  padding: 0px;
   background-color: #FFFFFF;
   border-radius: 10px;
   margin-bottom: 20px;
@@ -135,11 +137,11 @@ html, body {
 
 .button-container {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 20px;
+  justify-content: center;
+  margin-top: -10px;
 }
 
-.button-navegation {
+.button_form-navegation {
   font-size: 1.1rem;
   background-color: #63ACBB;
   text-decoration: none;
@@ -147,4 +149,9 @@ html, body {
   border-radius: 8px;
   display: inline-block;
   padding: 10px 20px;
+  transition: transform 0.2s; 
+}
+
+.button_form-navegation:hover {
+  transform: scale(1.05); 
 }

@@ -45,6 +45,11 @@ body {
   text-decoration: none;
   color: #fff;
   border-radius: 8px;
+  transition: transform 0.2s; 
+}
+
+.button-navegation:hover {
+  transform: scale(1.05); 
 }
 
 .copyright{

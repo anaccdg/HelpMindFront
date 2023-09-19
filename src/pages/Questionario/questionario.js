@@ -9,6 +9,7 @@ function Questionario(){
                 <div className='header_quest'> 
                     <h2 className='title_quest'>QUESTIONÁRIO</h2>
                     <div className="img_logo"></div>
+                    <div className="img_usuario"></div>
                     <Link to="/form" className="back_button"></Link>
                 </div>
                 <div className='form_quest-container'> 

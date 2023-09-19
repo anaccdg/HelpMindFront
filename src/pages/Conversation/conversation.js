@@ -10,12 +10,10 @@ function Conversation() {
             <div className="img_usuario"></div>
             <Link to="/Questionario" className="back_button"></Link>
             <div className="img_logo"></div>
-            <h1 className="apelido">Apelido</h1>
+            <h1 className="apelido">Celtinha</h1>
             <div className="user_chat"></div>
-            <div className="text_box" contentEditable="true">
-                Insira o texto aqui...
-                <button className="send_button"></button>
-            </div>
+            <textarea className = 'text_box' placeholder="Digite aqui sua mensagem"></textarea>
+            <button className="send_button"></button>
         </div>
     </div>
   );

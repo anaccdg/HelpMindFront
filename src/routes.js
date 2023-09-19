@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Conversation from './pages/Conversation'
+import Conversation from './pages/Conversation/conversation'
 import Home from './pages/Home'
 import Form from './pages/Form/form'
 import Erro from './pages/Erro'

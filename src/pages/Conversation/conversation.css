@@ -38,7 +38,7 @@
     position: absolute;
     width: 80px;
     height: 55px;
-    right: 96%;
+    right: 95%;
     top: 50%;
     transform: translateY(-50%);
     background-image: url('../../images/botao-voltar.png');
@@ -69,24 +69,27 @@
 
 .text_box {
     box-sizing: border-box;
-    position: absolute;
-    width: 1229px;
+    position: fixed;
+    width: 70%; /* Reduza o tamanho do .text_box */
     height: 84px;
     left: 50%;
     transform: translateX(-50%);
-    bottom: -800px; /* Altere o valor para ajustar a distância do elemento em relação à parte inferior */
+    bottom: 10px;
     background: #FAFAFC;
-    border: 1px solid #E6E6F0;
+    border: 1px solid #5BC0BE;
     border-radius: 8px;
+    color: black;
+    font-size: 4em;
+    line-height: 84px;
+    text-indent: 10px;
 }
 
-.send_button{
-    position: absolute;
+.send_button {
+    position: fixed;
     width: 80px;
-    height: 55px;
-    right: 1%;
-    top: 50%;
-    transform: translateY(-50%);
+    height: 60px;
+    right: 10px; 
+    bottom: 10px;
     background-image: url('../../images/mandar.png');
     background-size: contain;
     background-repeat: no-repeat;

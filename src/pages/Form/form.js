@@ -28,9 +28,7 @@ function Form() {
                         <br />
                         <h2 className="subtitle">O primeiro passo é preencher esse formulário.</h2>
                     </div>
-                    <div className="logo-container">
-                        <img src={logo} alt="Logo" className="logo" />
-                    </div>
+                    <div className="img_logo"></div>
                 </div>
             </div>
             <div className="form-container">
@@ -84,8 +82,8 @@ function Form() {
                         </ToggleButtonGroup>
                     </div>
                     <div className="button-container">
-                        <Link className="button_form-navegation" to="/Chat">
-                            Conversar
+                        <Link className="button_form-navegation" to="/Questionario">
+                            Seguinte
                         </Link>
                     </div>
 

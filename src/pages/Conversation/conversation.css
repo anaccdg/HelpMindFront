@@ -9,7 +9,7 @@
 
 .apelido{   
     position: absolute;
-    width: 133px;
+    width: auto;
     height: 42px;
     left: 176px;
     top: 35px;
@@ -36,7 +36,59 @@
     background-position: center; 
 }
 
+.body-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 0; /* Não há espaço acima do .message-container */
+  }
+  
+  .message-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    /* background-color: #f5f5f5; */
+    border-radius: 5px;
+    /* border: 1px solid #ccc; */
+    flex-grow: 1;
+    overflow-y: auto; 
+    max-height: 400px; 
+    margin-top: 130px;
+    margin-left: -100px; 
+    margin-right: -100px; 
+    width: calc(70% + 0px); 
+  }
+  
+  .message {
+  max-width: 70%;
+  margin: 5px 10px;
+  padding: 8px 12px;
+  border-radius: 10px;
+}
 
+.user {
+  background-color: #5BC0BE;
+  color: #fff;
+  align-self: flex-end;
+  font-size: 24px; 
+}
+
+.received {
+  background-color: #e0e0e0;
+  color: #333;
+  align-self: flex-start;
+  font-size: 24px; 
+}
+
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -80px; 
+  }
+  
 .back_button{
     position: absolute;
     width: 80px;
@@ -48,6 +100,14 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.simulate_button{
+    position: absolute;
+    width: 80px;
+    height: 55px;
+    right: 95%;
+    top: 50%;
 }
 
 .img_logo {

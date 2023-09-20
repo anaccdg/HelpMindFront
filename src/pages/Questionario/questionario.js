@@ -32,24 +32,18 @@ function Questionario() {
   const avatar = searchParams.get('avatar');
 
   const enviarRespostas = () => {
-    // Configuração da requisição
     const requestOptions = {
-      method: 'GET', // Você pode ajustar o método HTTP conforme necessário
+      method: 'GET', 
       mode: 'cors',
       headers: { 
         'Content-Type': 'application/json'},
-      //body: JSON.stringify({ /* Coloque aqui os dados que deseja enviar para a API */ })
     };
 
-    // Faz a chamada da API
     fetch('http://127.0.0.1:5000/api/data', requestOptions)
       .then(response => {
         if (response.ok) {
-          // A resposta da API foi bem-sucedida
-          // Você pode fazer alguma ação aqui, como redirecionar o usuário para a próxima página
           console.log('Dados enviados com sucesso');
         } else {
-          // A resposta da API não foi bem-sucedida
           console.error('Erro ao enviar os dados para a API');
         }
       })
@@ -63,7 +57,8 @@ function Questionario() {
       <div className='header_quest'> 
         <h2 className='title_quest'>QUESTIONÁRIO</h2>
         <div className="img_logo"></div>
-        <div className="img_usuario"></div>
+        <h1 className="apelido">{apelido}</h1>
+        <div className="img_usuario">{avatar}</div>
         <Link to="/form" className="back_button"></Link>
       </div>
       <div className='form_quest-container'> 

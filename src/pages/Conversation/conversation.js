@@ -40,7 +40,38 @@ function Conversation() {
   };
 
   const simulateReceivedMessage = () => {
-    const receivedMessage = "Claro! O que você está sentindo?";
+    const receivedMessage = ''//"Claro! O que você está sentindo?";
+
+    const requestOptions = {
+      method: 'GET', 
+      mode: 'cors',
+      headers: { 
+        'Content-Type': 'application/json'
+      },
+    };
+    
+    fetch('http://127.0.0.1:5000/api/conversation_chat', requestOptions)
+      .then(response => {
+        if (response.ok) {        
+          const contentType = response.headers.get('content-type');
+          
+          if (contentType && contentType.includes('application/json')) {            
+            console.log(response.json());
+          } else {            
+            console.log(response.text());
+          }
+        } else {
+          console.error('Erro ao enviar os dados para a API');
+        }
+      })
+      .then(data => {        
+        console.log(data);
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a chamada da API', error);
+      });
+
+    
     setMessages([...messages, { text: receivedMessage, sender: 'received' }]);
   };
 

@@ -36,19 +36,20 @@ function Questionario() {
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
   let avatar = searchParams.get('avatar');
+  let avatarQuestionario
 
   if (avatar === "dog1"){
-    avatar = dog1;
+    avatarQuestionario = dog1;
   } else if (avatar === "dog2"){
-    avatar = dog2;
+    avatarQuestionario = dog2;
   } else if (avatar === "dog3"){
-    avatar = dog3;
+    avatarQuestionario = dog3;
   } else if (avatar === "cat1"){
-    avatar = cat1;
+    avatarQuestionario = cat1;
   } else if (avatar === "cat2"){
-    avatar = cat2;
+    avatarQuestionario = cat2;
   } else if (avatar === "cat3"){
-    avatar = cat3;
+    avatarQuestionario = cat3;
   }
 
   const enviarRespostas = () => {
@@ -78,7 +79,7 @@ function Questionario() {
         <h2 className='title_quest'>QUESTIONÁRIO</h2>
         <div className="img_logo"></div>
         <h1 className="apelido">{apelido}</h1>
-        <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
+        <div className="img_usuario"><img src={avatarQuestionario} className="avatar-image" /></div>
         <Link to="/form" className="back_button"></Link>
       </div>
       <div className='form_quest-container'> 
@@ -179,7 +180,7 @@ function Questionario() {
         </div>
         <Link to={{
                   pathname: "/chat",
-                  search: `?apelido=${apelido}`, 
+                  search: `?apelido=${apelido}&avatar=${avatar}`, 
               }} className="button_quest" onClick={enviarRespostas}>Continuar</Link>
       </div>
     </div>                      

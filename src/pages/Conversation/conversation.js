@@ -13,7 +13,8 @@ function Conversation() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
-  let avatar = searchParams.get('avatarUser');
+  let avatar = searchParams.get('avatar');
+  console.log(avatar)
 
   if (avatar === "dog1"){
     avatar = dog1;

@@ -60,7 +60,7 @@
   display: inline-block;
   vertical-align: middle;
   font-weight: bold;
-  min-width: 20px; /* Defina a largura mínima necessária para acomodar números com dois dígitos */
+  min-width: 20px; 
   margin-left: 20px;
 }
 
@@ -71,7 +71,6 @@
   left: 90px;
   top: 24px;
   border-radius: 50%;
-  background: #D9D9D9;
   background-size: cover; 
   background-position: center; 
 }

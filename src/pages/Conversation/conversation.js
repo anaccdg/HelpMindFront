@@ -1,4 +1,3 @@
-// Importe useState
 import React, { useState } from 'react';
 import './conversation.css';
 import { Link, useLocation } from 'react-router-dom';

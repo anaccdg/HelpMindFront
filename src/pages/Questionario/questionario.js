@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom';
 import './questionario.css'
 import Descricao from "../../images/descricao.png"
 
@@ -25,6 +25,39 @@ function ComboBox() {
 }
 
 function Questionario() {
+
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const apelido = searchParams.get('apelido');
+  const avatar = searchParams.get('avatar');
+
+  const enviarRespostas = () => {
+    // Configuração da requisição
+    const requestOptions = {
+      method: 'GET', // Você pode ajustar o método HTTP conforme necessário
+      mode: 'cors',
+      headers: { 
+        'Content-Type': 'application/json'},
+      //body: JSON.stringify({ /* Coloque aqui os dados que deseja enviar para a API */ })
+    };
+
+    // Faz a chamada da API
+    fetch('http://127.0.0.1:5000/api/data', requestOptions)
+      .then(response => {
+        if (response.ok) {
+          // A resposta da API foi bem-sucedida
+          // Você pode fazer alguma ação aqui, como redirecionar o usuário para a próxima página
+          console.log('Dados enviados com sucesso');
+        } else {
+          // A resposta da API não foi bem-sucedida
+          console.error('Erro ao enviar os dados para a API');
+        }
+      })
+      .catch(error => {
+        console.error('Erro ao fazer a chamada da API', error);
+      });
+  }
+
   return (
     <div className='container_questionario'>
       <div className='header_quest'> 
@@ -110,7 +143,10 @@ function Questionario() {
           <ComboBox />
           <div className='questionary-text'>Sinto que tudo sempre da errado, e não vejo perspectiva de mudança.</div>
         </div>
-        <Link to="/chat" className="button_quest">Continuar</Link>
+        <Link to={{
+                            pathname: "/chat",
+                            search: `?apelido=${apelido}`, 
+                        }} className="button_quest" onClick={enviarRespostas}>Continuar</Link>
       </div>
     </div>                      
   )

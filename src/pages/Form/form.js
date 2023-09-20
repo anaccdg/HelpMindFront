@@ -13,9 +13,16 @@ import './form.css';
 
 function Form() {
     const [avatar, setAvatar] = useState('');
+    const [apelido, setApelido] = useState('');
 
-    const handleAvatarChange = (event, newAvatar) => {
+    const handleAvatarChange = (event) => {
+        const newAvatar = event.target.value;
         setAvatar(newAvatar);
+    };
+
+    const handleApelidoChange = (event) => {
+        const newApelido = event.target.value;
+        setApelido(newApelido);        
     };
 
     return (
@@ -40,6 +47,8 @@ function Form() {
                         variant="outlined"
                         fullWidth
                         margin="normal"
+                        onChange={handleApelidoChange}
+                        value={apelido}
                     />
                     <TextField
                         label="Idade"
@@ -82,11 +91,16 @@ function Form() {
                         </ToggleButtonGroup>
                     </div>
                     <div className="button-container">
-                        <Link className="button_form-navegation" to="/Questionario">
-                            Seguinte
+                        <Link
+                        className="button_form-navegation"
+                        to={{
+                            pathname: "/Questionario",
+                            search: `?apelido=${apelido}&avatar=${avatar}`, 
+                        }}
+                        >
+                        Seguinte
                         </Link>
                     </div>
-
                 </div>
             </div>
         </div>

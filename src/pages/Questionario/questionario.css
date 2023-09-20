@@ -77,7 +77,7 @@
 
 
 .lookup select {
-  width: 420px;
+  min-width: 200px; 
   padding: 10px;
   font-size: 16px;
   border: 1px solid #5BC0BE;

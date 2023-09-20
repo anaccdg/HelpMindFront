@@ -39,30 +39,17 @@ function Questionario() {
 
   if (avatar === "dog1"){
     avatar = dog1;
-    handleAvatarUser(avatar)
   } else if (avatar === "dog2"){
     avatar = dog2;
-    handleAvatarUser(avatar)
   } else if (avatar === "dog3"){
     avatar = dog3;
-    handleAvatarUser(avatar)
   } else if (avatar === "cat1"){
     avatar = cat1;
-    handleAvatarUser(avatar)
   } else if (avatar === "cat2"){
     avatar = cat2;
-    handleAvatarUser(avatar)
   } else if (avatar === "cat3"){
     avatar = cat3;
-    handleAvatarUser(avatar)
   }
-
-  const [avatarUser, setAvatar] = useState('');
-
-  const handleAvatarUser = (newAvatar) => {
-      setAvatar(newAvatar);
-  }
-       
 
   const enviarRespostas = () => {
     const requestOptions = {

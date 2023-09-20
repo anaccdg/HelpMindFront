@@ -40,7 +40,7 @@ function Conversation() {
   };
 
   const simulateReceivedMessage = () => {
-    const receivedMessage = ''//"Claro! O que você está sentindo?";
+    const receivedMessage = 'Ola! Como posso ajudar você hoje?'
 
     const requestOptions = {
       method: 'GET', 

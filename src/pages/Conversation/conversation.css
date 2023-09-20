@@ -40,7 +40,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 0; /* Não há espaço acima do .message-container */
+    margin-top: 0; 
   }
   
   .message-container {
@@ -59,6 +59,21 @@
     margin-right: -100px; 
     width: calc(70% + 0px); 
   }
+
+
+.message-container::-webkit-scrollbar {
+  width: 10px; 
+}
+
+.message-container::-webkit-scrollbar-thumb {
+  background-color: #5BC0BE; 
+  border-radius: 5px; 
+}
+
+.message-container::-webkit-scrollbar-track {
+  background-color: #d1e9e8; 
+  border-radius: 5px; 
+}
   
   .message {
   max-width: 70%;

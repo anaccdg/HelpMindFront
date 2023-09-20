@@ -63,78 +63,97 @@ function Questionario() {
       </div>
       <div className='form_quest-container'> 
         <div className='lookup'>
+          <div className='numero'>1</div>
           <ComboBox />
           <div className='questionary-text'>Não me sinto acolhido e pertencente nos grupos sociais em que participo</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>2</div>
           <ComboBox />
           <div className='questionary-text'>Quase todos os dias demoro a pegar no sono, não consigo me desligar</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>3</div>
           <ComboBox />
           <div className='questionary-text'>Ao despertar, acordo cansado</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>4</div>
           <ComboBox />
           <div className='questionary-text'>Sinto-me cansado durante o dia, mesmo sem fazer esforço físico</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>5</div>
           <ComboBox />
           <div className='questionary-text'>Tenho vontade de ficar sozinho em um canto</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>6</div>
           <ComboBox />
           <div className='questionary-text'>Sinto-me irritado comigo mesmo e com os outros</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>7</div>
           <ComboBox />
           <div className='questionary-text'>Não sinto vontade de acordar pela manhã</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>8</div>
           <ComboBox />
           <div className='questionary-text'>Penso que as pessoas estariam melhores sem mim</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>9</div>
           <ComboBox />
           <div className='questionary-text'>Sinto vontade de me machucar quando acontece algo ruim</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>10</div>
           <ComboBox />
           <div className='questionary-text'>Não costumo fazer minha higiene pessoal diariamente</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>11</div>
           <ComboBox />
           <div className='questionary-text'>Tenho notado que não consigo focar muito bem nas coisas que tenho que fazer diariamente</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>12</div>
           <ComboBox />
           <div className='questionary-text'>Me olho no espelho e não me agrado com o que vejo</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>13</div>
           <ComboBox />
           <div className='questionary-text'>Não sinto vontade de comer, ou como excessivamente</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>14</div>
           <ComboBox />
           <div className='questionary-text'>Sinto que venho me esquecendo das coisas com mais facilidade</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>15</div>
           <ComboBox />
           <div className='questionary-text'>Tive planos de tirar a minha própria vida</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>16</div>
           <ComboBox />
           <div className='questionary-text'>Me sinto ansioso a maior parte do tempo</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>17</div>
           <ComboBox />
           <div className='questionary-text'>Perdi o interesse em atividades que sempre gostei de realizar</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>18</div>
           <ComboBox />
           <div className='questionary-text'>Sinto que a maior parte das coisas que acontecem na minha vida, é minha culpa</div>
         </div>
         <div className='lookup'>
+        <div className='numero'>19</div>
           <ComboBox />
           <div className='questionary-text'>Sinto que tudo sempre da errado, e não vejo perspectiva de mudança.</div>
         </div>

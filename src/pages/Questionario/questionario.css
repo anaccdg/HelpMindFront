@@ -53,8 +53,17 @@
   display: inline-block;
   vertical-align: middle; 
   margin-right: 20px; 
-  margin-left: 10px;
+  margin-left: 20px;
 }
+
+.numero {
+  display: inline-block;
+  vertical-align: middle;
+  font-weight: bold;
+  min-width: 20px; /* Defina a largura mínima necessária para acomodar números com dois dígitos */
+  margin-left: 20px;
+}
+
 
 
 .lookup select {
@@ -70,7 +79,7 @@
   outline: none;
   margin-top: 10px;
   display: inline-block;
-  margin-left: 10px; 
+  margin-left: 20px; 
 }
 
 .lookup select:hover {

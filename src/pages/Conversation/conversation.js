@@ -18,9 +18,8 @@ function Conversation() {
     }
   };
 
-  // Função para simular uma mensagem recebida
   const simulateReceivedMessage = () => {
-    const receivedMessage = "FODA-SE!";
+    const receivedMessage = "Claro! O que você está sentindo?";
     setMessages([...messages, { text: receivedMessage, sender: 'received' }]);
   };
 

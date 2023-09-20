@@ -13,7 +13,6 @@ function Conversation() {
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
   let avatar = searchParams.get('avatar');
-  console.log(avatar)
 
   if (avatar === "dog1"){
     avatar = dog1;
@@ -31,6 +30,7 @@ function Conversation() {
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const [mensagemFinal, setNewMessageFinal] = useState('');
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -39,40 +39,45 @@ function Conversation() {
     }
   };
 
-  const simulateReceivedMessage = () => {
-    const receivedMessage = ''//"Claro! O que você está sentindo?";
+  const ultimaMensagem = (mensagem) => {
+    setNewMessageFinal(mensagem)
+  };
 
+  const simulateReceivedMessage = () => {
+    const receivedMessage = '';
+  
     const requestOptions = {
-      method: 'GET', 
+      method: 'POST', 
       mode: 'cors',
       headers: { 
         'Content-Type': 'application/json'
       },
+      body: JSON.stringify({
+        mensagemUsuario: mensagemFinal
+      })
     };
-    
+  
     fetch('http://127.0.0.1:5000/api/conversation_chat', requestOptions)
       .then(response => {
         if (response.ok) {        
           const contentType = response.headers.get('content-type');
           
           if (contentType && contentType.includes('application/json')) {            
-            console.log(response.json());
+            return response.json();
           } else {            
-            console.log(response.text());
+            return response.text();
           }
         } else {
           console.error('Erro ao enviar os dados para a API');
+          return null;
         }
       })
       .then(data => {        
-        console.log(data);
+        setMessages([...messages, { text: data, sender: 'received' }]);
       })
       .catch(error => {
         console.error('Erro ao fazer a chamada da API', error);
       });
-
-    
-    setMessages([...messages, { text: receivedMessage, sender: 'received' }]);
   };
 
   return (
@@ -99,11 +104,12 @@ function Conversation() {
             className="text_box"
             placeholder="Digite aqui sua mensagem"
             value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
+            onChange={(e) => {
+              setNewMessage(e.target.value);
+              ultimaMensagem(e.target.value);
+            }}
           />
-          <button className="send_button" onClick={handleSendMessage}>
-            
-          </button>
+          <button className="send_button" onClick={handleSendMessage}></button>
           <button className="simulate_button" onClick={simulateReceivedMessage}>
             Simular Recebida
           </button>

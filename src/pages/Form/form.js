@@ -18,6 +18,7 @@ function Form() {
     const handleAvatarChange = (event) => {
         const newAvatar = event.target.value;
         setAvatar(newAvatar);
+       
     };
 
     const handleApelidoChange = (event) => {

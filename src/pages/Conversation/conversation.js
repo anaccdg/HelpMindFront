@@ -2,11 +2,32 @@
 import React, { useState } from 'react';
 import './conversation.css';
 import { Link, useLocation } from 'react-router-dom';
+import dog1 from "../../images/form/dog1.png";
+import dog2 from "../../images/form/dog2.png";
+import dog3 from "../../images/form/dog3.png";
+import cat1 from "../../images/form/cat1.png";
+import cat2 from "../../images/form/cat2.png";
+import cat3 from "../../images/form/cat3.png";
 
 function Conversation() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
+  let avatar = searchParams.get('avatarUser');
+
+  if (avatar === "dog1"){
+    avatar = dog1;
+  } else if (avatar === "dog2"){
+    avatar = dog2;
+  } else if (avatar === "dog3"){
+    avatar = dog3;
+  } else if (avatar === "cat1"){
+    avatar = cat1;
+  } else if (avatar === "cat2"){
+    avatar = cat2;
+  } else if (avatar === "cat3"){
+    avatar = cat3;
+  }
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
@@ -27,7 +48,7 @@ function Conversation() {
     <div>
       <div className="background">
         <div className="header">
-          <div className="img_usuario"></div>
+        <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
           <Link to="/Questionario" className="back_button"></Link>
           <div className="img_logo"></div>
           <h1 className="apelido">{apelido}</h1>

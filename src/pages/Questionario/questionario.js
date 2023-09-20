@@ -2,6 +2,12 @@ import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import './questionario.css'
 import Descricao from "../../images/descricao.png"
+import dog1 from "../../images/form/dog1.png";
+import dog2 from "../../images/form/dog2.png";
+import dog3 from "../../images/form/dog3.png";
+import cat1 from "../../images/form/cat1.png";
+import cat2 from "../../images/form/cat2.png";
+import cat3 from "../../images/form/cat3.png";
 
 const opcoes = [
   { value: "opcao1", label: "0 - Nunca Acontece" },
@@ -29,7 +35,34 @@ function Questionario() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
-  const avatar = searchParams.get('avatar');
+  let avatar = searchParams.get('avatar');
+
+  if (avatar === "dog1"){
+    avatar = dog1;
+    handleAvatarUser(avatar)
+  } else if (avatar === "dog2"){
+    avatar = dog2;
+    handleAvatarUser(avatar)
+  } else if (avatar === "dog3"){
+    avatar = dog3;
+    handleAvatarUser(avatar)
+  } else if (avatar === "cat1"){
+    avatar = cat1;
+    handleAvatarUser(avatar)
+  } else if (avatar === "cat2"){
+    avatar = cat2;
+    handleAvatarUser(avatar)
+  } else if (avatar === "cat3"){
+    avatar = cat3;
+    handleAvatarUser(avatar)
+  }
+
+  const [avatarUser, setAvatar] = useState('');
+
+  const handleAvatarUser = (newAvatar) => {
+      setAvatar(newAvatar);
+  }
+       
 
   const enviarRespostas = () => {
     const requestOptions = {
@@ -58,7 +91,7 @@ function Questionario() {
         <h2 className='title_quest'>QUESTIONÁRIO</h2>
         <div className="img_logo"></div>
         <h1 className="apelido">{apelido}</h1>
-        <div className="img_usuario">{avatar}</div>
+        <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
         <Link to="/form" className="back_button"></Link>
       </div>
       <div className='form_quest-container'> 
@@ -158,9 +191,9 @@ function Questionario() {
           <div className='questionary-text'>Sinto que tudo sempre da errado, e não vejo perspectiva de mudança.</div>
         </div>
         <Link to={{
-                            pathname: "/chat",
-                            search: `?apelido=${apelido}`, 
-                        }} className="button_quest" onClick={enviarRespostas}>Continuar</Link>
+                  pathname: "/chat",
+                  search: `?apelido=${apelido}`, 
+              }} className="button_quest" onClick={enviarRespostas}>Continuar</Link>
       </div>
     </div>                      
   )

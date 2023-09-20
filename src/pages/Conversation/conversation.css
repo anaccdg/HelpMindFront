@@ -25,13 +25,12 @@
 
 .img_usuario {
     position: absolute;
-    width: 64px;
-    height: 64px;
-    left: 96px;
+    width: 68px;
+    height: 68px;
+    left: 90px;
     top: 24px;
     border-radius: 50%;
     background: #D9D9D9;
-    background-image: url('../../images/form/cat1.png'); 
     background-size: cover; 
     background-position: center; 
 }
@@ -180,3 +179,8 @@
     cursor: pointer; 
   }
   
+  .avatar-image {
+    width: 85%;
+    height: 85%;
+    object-fit: cover;
+  }

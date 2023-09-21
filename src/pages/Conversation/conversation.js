@@ -34,8 +34,11 @@ function Conversation() {
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
+      const mensagem = newMessage;
+      ultimaMensagem(mensagem); 
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
+      simulateReceivedMessage(mensagem); 
     }
   };
 
@@ -43,18 +46,16 @@ function Conversation() {
     setNewMessageFinal(mensagem)
   };
 
-  const simulateReceivedMessage = () => {
-    const receivedMessage = '';
-  
+  const simulateReceivedMessage = (mensagem) => {
     const requestOptions = {
-      method: 'POST', 
+      method: 'POST',
       mode: 'cors',
-      headers: { 
-        'Content-Type': 'application/json'
+      headers: {
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        mensagemUsuario: mensagemFinal
-      })
+        mensagemUsuario: mensagem,
+      }),
     };
   
     fetch('http://127.0.0.1:5000/api/conversation_chat', requestOptions)
@@ -72,13 +73,14 @@ function Conversation() {
           return null;
         }
       })
-      .then(data => {        
-        setMessages([...messages, { text: data, sender: 'received' }]);
+      .then(data => {
+        setMessages(prevMessages => [...prevMessages, { text: data, sender: 'received' }]);
       })
       .catch(error => {
         console.error('Erro ao fazer a chamada da API', error);
       });
   };
+  
 
   return (
     <div>

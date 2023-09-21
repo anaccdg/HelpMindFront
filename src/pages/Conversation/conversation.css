@@ -116,12 +116,13 @@
     background-position: center;
 }
 
-.simulate_button{
-    position: absolute;
-    width: 80px;
-    height: 55px;
-    right: 95%;
-    top: 50%;
+.simulate_button {
+  display: none;
+  position: absolute;
+  width: 80px;
+  height: 55px;
+  right: 95%;
+  top: 50%;
 }
 
 .img_logo {

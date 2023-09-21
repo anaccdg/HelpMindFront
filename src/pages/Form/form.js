@@ -24,10 +24,15 @@ function Form() {
        
     };
 
+    const capitalizeFirstLetter = (str) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+      };
+      
     const handleApelidoChange = (event) => {
-        const newApelido = event.target.value;
-        setApelido(newApelido);        
+        const newApelido = capitalizeFirstLetter(event.target.value);
+        setApelido(newApelido);
     };
+      
 
     const [idade, setIdade] = useState('');
 

@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import React from 'react';
-import logo from "../../images/logo.png";
 import dog1 from "../../images/form/dog1.png";
 import dog2 from "../../images/form/dog2.png";
 import dog3 from "../../images/form/dog3.png";
@@ -8,6 +7,10 @@ import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
 import { TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
 
@@ -24,6 +27,29 @@ function Form() {
     const handleApelidoChange = (event) => {
         const newApelido = event.target.value;
         setApelido(newApelido);        
+    };
+
+    const [idade, setIdade] = useState('');
+
+    const handleInputChange = (event) => {
+        let inputValue = event.target.value;
+    
+        inputValue = inputValue.replace(/[^0-9]/g, '');
+    
+        if (event.key === 'Backspace' && inputValue !== '') {
+          
+          inputValue = inputValue.slice(0, -1);
+        }
+        
+        inputValue = inputValue.slice(0, 2);
+
+        setIdade(inputValue);
+      };
+
+    const [genero, setGenero] = useState('');
+
+    const handleGeneroChange = (event) => {
+        setGenero(event.target.value);
     };
 
     return (
@@ -56,13 +82,30 @@ function Form() {
                         variant="outlined"
                         fullWidth
                         margin="normal"
+                        value={idade}
+                        onChange={handleInputChange}
+                        inputProps={{
+                            type: 'text', 
+                        }}
                     />
-                    <TextField
-                        label="Gênero"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                    />
+                   <div>
+                    <FormControl fullWidth variant="outlined" margin="normal">
+                        <InputLabel htmlFor="genero-select">Gênero</InputLabel>
+                            <Select
+                                label="Gênero"
+                                value={genero}
+                                onChange={handleGeneroChange}
+                                inputProps={{
+                                    name: 'genero',
+                                    id: 'genero-select',
+                                }}
+                                >
+                                <MenuItem value="masculino">Masculino</MenuItem>
+                                <MenuItem value="feminino">Feminino</MenuItem>
+                                <MenuItem value="outro">Prefiro não dizer</MenuItem>
+                            </Select>
+                    </FormControl>
+                    </div>
                     <div className="avatar-wrapper">
                         <div className="avatar-title MuiInputLabel-root">Avatar</div>
                         <ToggleButtonGroup

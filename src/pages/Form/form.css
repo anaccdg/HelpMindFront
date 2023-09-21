@@ -163,3 +163,15 @@ html, body {
 .button_form-navegation:hover {
   transform: scale(1.05); 
 }
+
+.error-message {
+  color: red; 
+  font-size: 12px; 
+  margin-top: 1350px; 
+  margin-right: 640px;
+}
+
+
+.error-message.hidden {
+  display: none; 
+}

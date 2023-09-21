@@ -57,6 +57,10 @@ function Form() {
         setGenero(event.target.value);
     };
 
+    const isFormValid = apelido && idade && genero && avatar;
+
+    const errorMessage = 'Por favor, preencha todos os campos.';
+
     return (
         <div>
             <div className="header">
@@ -68,6 +72,11 @@ function Form() {
                         <h2 className="subtitle">O primeiro passo é preencher esse formulário.</h2>
                     </div>
                     <div className="img_logo"></div>
+                    {!isFormValid && (
+                        <div className="error-message">
+                        {errorMessage}
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="form-container">
@@ -141,13 +150,13 @@ function Form() {
                     </div>
                     <div className="button-container">
                         <Link
-                        className="button_form-navegation"
-                        to={{
+                            to={isFormValid ? {
                             pathname: "/Questionario",
                             search: `?apelido=${apelido}&avatar=${avatar}`, 
-                        }}
+                            } : '#'}
+                            className={`button_form-navegation ${isFormValid ? '' : 'disabled'}`}
                         >
-                        Seguinte
+                            Seguinte
                         </Link>
                     </div>
                 </div>

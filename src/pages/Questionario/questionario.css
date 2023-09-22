@@ -17,8 +17,9 @@
 .title_quest {
   font-weight: bold;
   text-align: center;
-  font-family: 'Muli', sans-serif;
-  border-radius: 10px; 
+  font-family: 'Dancing Script', cursive; 
+  font-size: 40px;
+  color: #ffffff;
 }
 
 .form_quest-container {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import dog1 from "../../images/form/dog1.png";
 import dog2 from "../../images/form/dog2.png";
@@ -6,13 +6,15 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
-import { TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Form() {
     const [avatar, setAvatar] = useState('');
@@ -59,22 +61,23 @@ function Form() {
 
     const isFormValid = apelido && idade && genero && avatar;
 
+    const isAgeValid = idade >= 15 && idade <= 18 || idade == '';
+
     const errorMessage = 'Por favor, preencha todos os campos.';
+    const errorMessageAge = 'O usuário deve ter de 15 a 18 anos';
+    const [botaoClicado, setBotaoClicado] = useState(false);
+
 
     return (
         <div>
             <div className="header">
+                <h2 className='titulo'>FORMULÁRIO</h2>
                 <div className="content">
                     <Link to="/" className="back_button"></Link>
-                    <div className="text-container">
-                        <h1 className="title">Bom te ver por aqui! :)</h1>
-                        <br />
-                        <h2 className="subtitle">O primeiro passo é preencher esse formulário.</h2>
-                    </div>
                     <div className="img_logo"></div>
-                    {!isFormValid && (
+                    {botaoClicado && !isFormValid && (
                         <div className="error-message">
-                        {errorMessage}
+                            {errorMessage}
                         </div>
                     )}
                 </div>
@@ -150,11 +153,39 @@ function Form() {
                     </div>
                     <div className="button-container">
                         <Link
-                            to={isFormValid ? {
+                            to={isFormValid && isAgeValid ? {
                             pathname: "/Questionario",
-                            search: `?apelido=${apelido}&avatar=${avatar}`, 
+                            search: `?apelido=${apelido}&avatar=${avatar}`,
                             } : '#'}
-                            className={`button_form-navegation ${isFormValid ? '' : 'disabled'}`}
+                            className={`button_form-navegation ${!isFormValid || !isAgeValid ? 'disabled' : ''}`}
+                            onClick={() => {
+                            if (!isFormValid) {
+                                toast.error(errorMessage, {
+                                    position: "bottom-right",
+                                    autoClose: 2500,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    rtl: false,
+                                    pauseOnFocusLoss: true,
+                                    draggable: true,
+                                    pauseOnHover: true,
+                                  });                                                                    
+                            }
+
+                            if (!isAgeValid) {
+                                toast.error(errorMessageAge, {
+                                    position: "bottom-right",
+                                    autoClose: 2500,
+                                    hideProgressBar: false,
+                                    closeOnClick: true,
+                                    rtl: false,
+                                    pauseOnFocusLoss: true,
+                                    draggable: true,
+                                    pauseOnHover: true,
+                                  });                                                                    
+                            }
+
+                            }}
                         >
                             Seguinte
                         </Link>

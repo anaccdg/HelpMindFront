@@ -45,18 +45,6 @@ html, body {
   margin-left: 2rem;
 }
 
-.title {
-  font-size: 1.25rem;
-  margin-bottom: 0.9375rem;
-  margin-left: 40px; 
-}
-
-.subtitle {
-  font-size: 0.9375rem;
-  color: black;
-  margin-left: 40px; 
-}
-
 .form-container {
   padding: 30px 50px;
   margin: 150px auto 0; 
@@ -66,10 +54,13 @@ html, body {
   border-radius: 15px;
 }
 
-.form-title {
-  font-size: 1.5rem;
-  color: black;
-  margin-bottom: 20px;
+.titulo{
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Dancing Script', cursive; 
+  font-size: 40px;
+  margin-left: 70px;
+  color: #ffffff;
 }
 
 .form-line {
@@ -108,7 +99,7 @@ html, body {
   background-color: #FFFFFF;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #5BC0BE;
 }
 
 .avatar-wrapper:hover {
@@ -140,7 +131,7 @@ html, body {
 }
 
 .avatar-image:hover {
-  transform: scale(1.7); 
+  transform: scale(1.4); 
 }
 
 .button-container {
@@ -164,14 +155,4 @@ html, body {
   transform: scale(1.05); 
 }
 
-.error-message {
-  color: red; 
-  font-size: 12px; 
-  margin-top: 1350px; 
-  margin-right: 640px;
-}
 
-
-.error-message.hidden {
-  display: none; 
-}

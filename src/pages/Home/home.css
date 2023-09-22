@@ -14,7 +14,7 @@ body {
   display: flex;
 }
 
-.logo {
+.logo_principal {
   position: absolute;
   right: 20%;
   top: 40%;

@@ -111,7 +111,7 @@ function Conversation() {
               ultimaMensagem(e.target.value);
             }}
           />
-          <button className="send_button" onClick={handleSendMessage}></button>
+          <div className="send_button" onClick={handleSendMessage}></div>
           <button className="simulate_button" onClick={simulateReceivedMessage}>
             Simular Recebida
           </button>

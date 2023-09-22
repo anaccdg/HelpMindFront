@@ -61,11 +61,11 @@ function Form() {
 
     const isFormValid = apelido && idade && genero && avatar;
 
-    const isAgeValid = idade >= 15 && idade <= 18 || idade == '';
+    const isAgeValid = (idade >= 15 && idade <= 18) || idade === '';
 
     const errorMessage = 'Por favor, preencha todos os campos.';
     const errorMessageAge = 'O usuário deve ter de 15 a 18 anos';
-    const [botaoClicado, setBotaoClicado] = useState(false);
+    const [botaoClicado] = useState(false);
 
 
     return (

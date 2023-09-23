@@ -7,6 +7,9 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 function Conversation() {
   const location = useLocation();
@@ -35,12 +38,24 @@ function Conversation() {
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
       const mensagem = newMessage;
-      ultimaMensagem(mensagem); 
+      ultimaMensagem(mensagem);
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
-      simulateReceivedMessage(mensagem); 
+      simulateReceivedMessage(mensagem);
+    } else {
+      toast.error("Por favor, digite uma mensagem antes de enviar.", {
+        position: "bottom-right",
+        autoClose: 2500,
+        hideProgressBar: false,
+        closeOnClick: true,
+        rtl: false,
+        pauseOnFocusLoss: true,
+        draggable: true,
+        pauseOnHover: true,
+      });
     }
   };
+  
 
   const ultimaMensagem = (mensagem) => {
     setNewMessageFinal(mensagem)

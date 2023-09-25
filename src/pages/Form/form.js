@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
-import {showMessageError} from '../Utils/utils.js';
+import {showMessageError, showMessageWarn} from '../Utils/utils.js';
 
 function Form() {
     const [avatar, setAvatar] = useState('');
@@ -25,15 +25,41 @@ function Form() {
        
     };
 
-    const capitalizeFirstLetter = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-      };
+    let showMessageErrorTimeout; 
+    let primeiraChamada = true; 
+
+    const capitalizeFirstLetter = (str, limit = 15) => {
+        const words = str.split(' ');
+
+        const firstTwoWords = words.slice(0, 2).map((word) => {
+            if (word.length > 0) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+            }
+            return word;
+        });
+
+        const capitalizedString = firstTwoWords.join(' ');
+
+        if (capitalizedString.length > limit) {
+            if (primeiraChamada) {
+                showMessageWarn(`Atenção: o limite é de ${limit} caracteres.`);
+            primeiraChamada = false; 
+            } else if (!showMessageErrorTimeout) {
+            showMessageErrorTimeout = setTimeout(() => {
+                showMessageWarn(`Atenção: o limite é de ${limit} caracteres.`);
+                showMessageErrorTimeout = null; 
+            }, 3500); 
+            }
+            return capitalizedString.slice(0, limit);
+        }
+
+        return capitalizedString;
+    };   
       
     const handleApelidoChange = (event) => {
         const newApelido = capitalizeFirstLetter(event.target.value);
         setApelido(newApelido);
     };
-      
 
     const [idade, setIdade] = useState('');
 

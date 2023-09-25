@@ -13,8 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {showMessageError} from '../Utils/utils.js';
 
 function Form() {
     const [avatar, setAvatar] = useState('');
@@ -63,8 +62,11 @@ function Form() {
 
     const isAgeValid = (idade >= 15 && idade <= 18) || idade === '';
 
-    const errorMessage = 'Por favor, preencha todos os campos.';
-    const errorMessageAge = 'O usuário deve ter de 15 a 18 anos';
+    const errorMessages = [
+        'Por favor, preencha todos os campos.',
+        'O usuário deve ter de 15 a 18 anos.'
+      ];
+      
     const [botaoClicado] = useState(false);
 
 
@@ -77,7 +79,7 @@ function Form() {
                     <div className="img_logo"></div>
                     {botaoClicado && !isFormValid && (
                         <div className="error-message">
-                            {errorMessage}
+                            {errorMessages}
                         </div>
                     )}
                 </div>
@@ -160,29 +162,11 @@ function Form() {
                             className={`button_form-navegation ${!isFormValid || !isAgeValid ? 'disabled' : ''}`}
                             onClick={() => {
                             if (!isFormValid) {
-                                toast.error(errorMessage, {
-                                    position: "bottom-right",
-                                    autoClose: 2500,
-                                    hideProgressBar: false,
-                                    closeOnClick: true,
-                                    rtl: false,
-                                    pauseOnFocusLoss: true,
-                                    draggable: true,
-                                    pauseOnHover: true,
-                                  });                                                                    
+                                showMessageError(errorMessages[0]);                                                                    
                             }
 
                             if (!isAgeValid) {
-                                toast.error(errorMessageAge, {
-                                    position: "bottom-right",
-                                    autoClose: 2500,
-                                    hideProgressBar: false,
-                                    closeOnClick: true,
-                                    rtl: false,
-                                    pauseOnFocusLoss: true,
-                                    draggable: true,
-                                    pauseOnHover: true,
-                                  });                                                                    
+                                showMessageError(errorMessages[1]);                                                                   
                             }
 
                             }}

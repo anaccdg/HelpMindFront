@@ -47,6 +47,12 @@ function Conversation() {
       showMessageWarn(messageError);
     }
   };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
   
 
   const ultimaMensagem = (mensagem) => {
@@ -116,6 +122,12 @@ function Conversation() {
             onChange={(e) => {
               setNewMessage(e.target.value);
               ultimaMensagem(e.target.value);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); 
+                handleSendMessage(); 
+              }
             }}
           />
           <div className="send_button" onClick={handleSendMessage}></div>

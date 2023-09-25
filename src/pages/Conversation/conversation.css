@@ -49,8 +49,8 @@
   border-radius: 5px;
   flex-grow: 1;
   overflow-y: auto; 
-  max-height: 400px; 
-  margin-top: 130px;
+  max-height: 600px; 
+  margin-top: 170px;
   margin-left: -100px; 
   margin-right: -100px; 
   width: calc(70% + 0px); 
@@ -182,3 +182,62 @@
   height: 85%;
   object-fit: cover;
 }
+
+@media screen and (max-width: 1024px) {
+  .message-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    max-height: 100%;
+    height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .text_box {
+    width: 90%;
+    font-size: 2em;
+  }
+
+  .send_button {
+    width: 60px;
+    height: 50px;
+    position: absolute;
+    right: 50px;
+    bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .message-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 10px;
+    max-height: 100%;
+    height: calc(100vh - 200px);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .text_box {
+    width: 90%;
+    font-size: 2em;
+  }
+
+  .send_button {
+    width: 60px;
+    height: 50px;
+    position: absolute; 
+    right: 40px; 
+    bottom: 30px; 
+  }
+}
+
+

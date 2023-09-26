@@ -120,13 +120,15 @@ function Conversation() {
             placeholder="Digite aqui sua mensagem"
             value={newMessage}
             onChange={(e) => {
-              setNewMessage(e.target.value);
-              ultimaMensagem(e.target.value);
+              const inputValue = e.target.value;
+              const formattedValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
+              setNewMessage(formattedValue);
+              ultimaMensagem(formattedValue);
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {
-                e.preventDefault(); 
-                handleSendMessage(); 
+                e.preventDefault();
+                handleSendMessage();
               }
             }}
           />

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import React, { useState } from 'react';
+//import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import './questionario.css'
 import Descricao from "../../images/descricao.png"
@@ -10,12 +11,12 @@ import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
 
 const opcoes = [
-  { value: "opcao1", label: "0 - Nunca Acontece" },
-  { value: "opcao2", label: "1 - Acontece uma vez no mês" },
-  { value: "opcao3", label: "2 - Acontece a cada 15 dias" },
-  { value: "opcao4", label: "3 - Acontece uma vez na semana" },
-  { value: "opcao5", label: "4 - Acontece mais de duas vezes na mesma semana" },
-  { value: "opcao6", label: "5 - Acontece o tempo todo" },
+  { value: 0, label: "0 - Nunca Acontece" },
+  { value: 1, label: "1 - Acontece uma vez no mês" },
+  { value: 2, label: "2 - Acontece a cada 15 dias" },
+  { value: 3, label: "3 - Acontece uma vez na semana" },
+  { value: 4, label: "4 - Acontece mais de duas vezes na mesma semana" },
+  { value: 5, label: "5 - Acontece o tempo todo" },
 ]
 
 function ComboBox() {
@@ -32,6 +33,7 @@ function ComboBox() {
 
 function Questionario() {
 
+  var respostas = [];
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
@@ -52,21 +54,41 @@ function Questionario() {
     avatarQuestionario = cat3;
   }
 
+  const pegarRespostas = () => {
+    const selectElements = document.querySelectorAll('select');
+
+    const respostasSelecionadas = [];
+    respostas[0] = [];
+
+    selectElements.forEach((select) =>
+    {
+      const selectOption = select.value;
+      respostasSelecionadas.push(selectOption);
+    });
+
+    for(var i = 0; i < respostasSelecionadas.length; i++)
+    {
+      respostas[0].push(respostasSelecionadas[i]);
+    }
+  };
+
   const enviarRespostas = () => {
+    pegarRespostas();
+
+    var jsonData = { "respostas": respostas }; 
+    
     const requestOptions = {
-      method: 'GET', 
+      method: 'POST', 
       mode: 'cors',
       headers: { 
         'Content-Type': 'application/json'},
+      body: JSON.stringify(jsonData)
     };
 
     fetch('http://127.0.0.1:5000/api/data', requestOptions)
-      .then(response => {
-        if (response.ok) {
-          console.log('Dados enviados com sucesso');
-        } else {
-          console.error('Erro ao enviar os dados para a API');
-        }
+      .then(response => response.json())
+      .then(data => {
+        console.log(data.message);
       })
       .catch(error => {
         console.error('Erro ao fazer a chamada da API', error);
@@ -156,27 +178,12 @@ function Questionario() {
         <div className='lookup'>
         <div className='numero'>15</div>
           <ComboBox />
-          <div className='questionary-text'>Tive planos de tirar a minha própria vida</div>
+          <div className='questionary-text'>Me sinto ansioso a maior parte do tempo</div>
         </div>
         <div className='lookup'>
         <div className='numero'>16</div>
           <ComboBox />
-          <div className='questionary-text'>Me sinto ansioso a maior parte do tempo</div>
-        </div>
-        <div className='lookup'>
-        <div className='numero'>17</div>
-          <ComboBox />
-          <div className='questionary-text'>Perdi o interesse em atividades que sempre gostei de realizar</div>
-        </div>
-        <div className='lookup'>
-        <div className='numero'>18</div>
-          <ComboBox />
-          <div className='questionary-text'>Sinto que a maior parte das coisas que acontecem na minha vida, é minha culpa</div>
-        </div>
-        <div className='lookup'>
-        <div className='numero'>19</div>
-          <ComboBox />
-          <div className='questionary-text'>Sinto que tudo sempre da errado, e não vejo perspectiva de mudança.</div>
+          <div className='questionary-text'>Tive planos de tirar a minha própria vida</div>
         </div>
         <Link to={{
                   pathname: "/chat",

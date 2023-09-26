@@ -36,25 +36,9 @@ html, body {
   margin-right: 2rem;
 }
 
-.logo {
-  width: 80px;
-}
-
 .text-container {
   margin-right: auto;
   margin-left: 2rem;
-}
-
-.title {
-  font-size: 1.25rem;
-  margin-bottom: 0.9375rem;
-  margin-left: 40px; 
-}
-
-.subtitle {
-  font-size: 0.9375rem;
-  color: black;
-  margin-left: 40px; 
 }
 
 .form-container {
@@ -66,10 +50,13 @@ html, body {
   border-radius: 15px;
 }
 
-.form-title {
-  font-size: 1.5rem;
-  color: black;
-  margin-bottom: 20px;
+.titulo{
+  font-weight: bold;
+  text-align: center;
+  font-family: 'Dancing Script', cursive; 
+  font-size: 40px;
+  margin-left: 70px;
+  color: #ffffff;
 }
 
 .form-line {
@@ -108,7 +95,7 @@ html, body {
   background-color: #FFFFFF;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #5BC0BE;
 }
 
 .avatar-wrapper:hover {
@@ -140,7 +127,7 @@ html, body {
 }
 
 .avatar-image:hover {
-  transform: scale(1.7); 
+  transform: scale(1.4); 
 }
 
 .button-container {
@@ -164,14 +151,62 @@ html, body {
   transform: scale(1.05); 
 }
 
-.error-message {
-  color: red; 
-  font-size: 12px; 
-  margin-top: 1350px; 
-  margin-right: 640px;
+.back_button{
+  position: absolute;
+  width: 80px;
+  height: 55px;
+  right: 95%;
+  top: 50%;
+  transform: translateY(-50%);
+  background-image: url('../../images/botao-voltar.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+@media screen and (max-width: 768px) {
+  .form-container {
+    width: 90%;
+    max-width: 100%;
+    margin-top: 50px; 
+  }
+
+  .titulo {
+    font-size: 28px; 
+    margin-left: 5;
+  }
+
+  .button-container {
+    margin-top: 20px; 
+  }
+
+  .button_form-navegation {
+    font-size: 1rem; 
+  }
+
+  .back_button {
+    display: block; 
+    position: absolute;
+    width: 40px;
+    height: 30px;
+    right: 90%; 
+    top: 50%;
+    transform: translateY(-50%);
+    background-image: url('../../images/botao-voltar.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-container {
+    padding: 20px;
+  }
+
+  .button_form-navegation {
+    font-size: 0.9rem; 
+  }
 }
 
 
-.error-message.hidden {
-  display: none; 
-}

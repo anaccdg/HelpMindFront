@@ -7,12 +7,16 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
+import {showMessageWarn} from '../Utils/utils.js';
+
 
 function Conversation() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
   const apelido = searchParams.get('apelido');
   let avatar = searchParams.get('avatar');
+
+  const messageError = 'Por favor, digite uma mensagem antes de enviar'
 
   if (avatar === "dog1"){
     avatar = dog1;
@@ -35,12 +39,21 @@ function Conversation() {
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
       const mensagem = newMessage;
-      ultimaMensagem(mensagem); 
+      ultimaMensagem(mensagem);
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
-      simulateReceivedMessage(mensagem); 
+      simulateReceivedMessage(mensagem);
+    } else {
+      showMessageWarn(messageError);
     }
   };
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
+    }
+  };
+  
 
   const ultimaMensagem = (mensagem) => {
     setNewMessageFinal(mensagem)
@@ -110,8 +123,14 @@ function Conversation() {
               setNewMessage(e.target.value);
               ultimaMensagem(e.target.value);
             }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault(); 
+                handleSendMessage(); 
+              }
+            }}
           />
-          <button className="send_button" onClick={handleSendMessage}></button>
+          <div className="send_button" onClick={handleSendMessage}></div>
           <button className="simulate_button" onClick={simulateReceivedMessage}>
             Simular Recebida
           </button>

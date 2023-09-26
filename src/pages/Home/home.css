@@ -9,97 +9,71 @@ body {
   min-height: 100vh;
   width: 100%;
   background-color: #F3E6E2;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
-.logo {
-  position: absolute;
-  right: 20%;
-  top: 40%;
+.logo_principal {
   width: 350px;
-  transform: translateY(-50%) rotate(19.58deg);
+  transform: rotate(19.58deg);
   background-size: contain;
+  margin-top: 50px;
 }
 
 .descricao {
-  position: absolute;
-  left: 20%;
-  top: 30%;
-  width: 700px;
+  width: 100%;
+  max-width: 700px;
   background-size: contain;
+  margin-top: 0px;
 }
 
 .button-navegation {
-  position: absolute;
-  top: 60%;
-  left: 30%;
-  display: flex;
-  align-items: center;
   width: 250px;
   height: 50px;
-  justify-content: center;
   font-size: 24px;
   background-color: #63ACBB;
   text-decoration: none;
   color: #fff;
   border-radius: 8px;
   transition: transform 0.2s; 
+  margin-top: 50px;
+  text-align: center;
+  line-height: 50px;
 }
 
 .button-navegation:hover {
   transform: scale(1.05); 
 }
 
-.copyright{
-    position: fixed;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    bottom: 0;
-    width: 100%;
-    font-size: 15px;
+.copyright {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 15px;
 }
 
-/* Adicione uma media query para ajustar o layout em telas menores */
 @media screen and (max-width: 768px) {
   .container {
-    align-items: flex-start;
     padding: 20px;
   }
 
-  .descricao,
-  .button-navegation {
-    position: static;
-    width: 100%;
-    margin-bottom: 20px;
+  .logo_principal {
+    width: 350px; 
+    transform: none;
+    margin-top: 40px; 
   }
 
-  .logo {
-    position: static;
-    width: 100%;
-    margin-bottom: 20px;
+  .descricao {
+    max-width: 100%;
+    margin-top: 20px; 
+  }
+
+  .button-navegation {
+    width: 250px; 
+    margin-top: 30px; 
   }
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-      align-items: flex-start;
-      padding: 20px;
-    }
-  
-    .descricao,
-    .button-navegation {
-      position: static;
-      width: 100%;
-      margin-bottom: 20px;
-    }
-  
-    .logo {
-        position: static;
-        transform: none;
-        margin-left: auto;
-        margin-right: 20px;
-    }
-  }

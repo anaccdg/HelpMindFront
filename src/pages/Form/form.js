@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import React from 'react';
 import dog1 from "../../images/form/dog1.png";
 import dog2 from "../../images/form/dog2.png";
@@ -6,13 +6,14 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
-import { TextField, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
+import { TextField, ToggleButton, ToggleButtonGroup } from '@mui/material';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
+import {showMessageError, showMessageWarn} from '../Utils/utils.js';
 
 function Form() {
     const [avatar, setAvatar] = useState('');
@@ -24,15 +25,41 @@ function Form() {
        
     };
 
-    const capitalizeFirstLetter = (str) => {
-        return str.charAt(0).toUpperCase() + str.slice(1);
-      };
+    let showMessageErrorTimeout; 
+    let primeiraChamada = true; 
+
+    const capitalizeFirstLetter = (str, limit = 15) => {
+        const words = str.split(' ');
+
+        const firstTwoWords = words.slice(0, 2).map((word) => {
+            if (word.length > 0) {
+            return word.charAt(0).toUpperCase() + word.slice(1);
+            }
+            return word;
+        });
+
+        const capitalizedString = firstTwoWords.join(' ');
+
+        if (capitalizedString.length > limit) {
+            if (primeiraChamada) {
+                showMessageWarn(`Atenção: o limite é de ${limit} caracteres.`);
+            primeiraChamada = false; 
+            } else if (!showMessageErrorTimeout) {
+            showMessageErrorTimeout = setTimeout(() => {
+                showMessageWarn(`Atenção: o limite é de ${limit} caracteres.`);
+                showMessageErrorTimeout = null; 
+            }, 3500); 
+            }
+            return capitalizedString.slice(0, limit);
+        }
+
+        return capitalizedString;
+    };   
       
     const handleApelidoChange = (event) => {
         const newApelido = capitalizeFirstLetter(event.target.value);
         setApelido(newApelido);
     };
-      
 
     const [idade, setIdade] = useState('');
 
@@ -59,22 +86,26 @@ function Form() {
 
     const isFormValid = apelido && idade && genero && avatar;
 
-    const errorMessage = 'Por favor, preencha todos os campos.';
+    const isAgeValid = (idade >= 15 && idade <= 18) || idade === '';
+
+    const errorMessages = [
+        'Por favor, preencha todos os campos.',
+        'O usuário deve ter de 15 a 18 anos.'
+      ];
+      
+    const [botaoClicado] = useState(false);
+
 
     return (
         <div>
             <div className="header">
+                <h2 className='titulo'>FORMULÁRIO</h2>
                 <div className="content">
                     <Link to="/" className="back_button"></Link>
-                    <div className="text-container">
-                        <h1 className="title">Bom te ver por aqui! :)</h1>
-                        <br />
-                        <h2 className="subtitle">O primeiro passo é preencher esse formulário.</h2>
-                    </div>
                     <div className="img_logo"></div>
-                    {!isFormValid && (
+                    {botaoClicado && !isFormValid && (
                         <div className="error-message">
-                        {errorMessage}
+                            {errorMessages}
                         </div>
                     )}
                 </div>
@@ -150,11 +181,21 @@ function Form() {
                     </div>
                     <div className="button-container">
                         <Link
-                            to={isFormValid ? {
+                            to={isFormValid && isAgeValid ? {
                             pathname: "/Questionario",
-                            search: `?apelido=${apelido}&avatar=${avatar}`, 
+                            search: `?apelido=${apelido}&avatar=${avatar}`,
                             } : '#'}
-                            className={`button_form-navegation ${isFormValid ? '' : 'disabled'}`}
+                            className={`button_form-navegation ${!isFormValid || !isAgeValid ? 'disabled' : ''}`}
+                            onClick={() => {
+                            if (!isFormValid) {
+                                showMessageError(errorMessages[0]);                                                                    
+                            }
+
+                            if (!isAgeValid) {
+                                showMessageError(errorMessages[1]);                                                                   
+                            }
+
+                            }}
                         >
                             Seguinte
                         </Link>

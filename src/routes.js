@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Conversation from './pages/Conversation/conversation'
 import Home from './pages/Home'
 import Form from './pages/Form/form'
-import Erro from './pages/Erro'
+import Erro from './pages/Erro/erro'
 import Questionario from './pages/Questionario/questionario'
-import Header from './components/Header'
 
 function RoutesApp(){
     return(

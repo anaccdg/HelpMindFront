@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-//import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
 import './questionario.css'
-import Descricao from "../../images/descricao.png"
 import dog1 from "../../images/form/dog1.png";
 import dog2 from "../../images/form/dog2.png";
 import dog3 from "../../images/form/dog3.png";

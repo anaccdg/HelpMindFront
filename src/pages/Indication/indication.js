@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './indication.css';
 import p1 from '../../images/p1.jpg';
+import p3 from '../../images/p3.jpg';
 import p2 from '../../images/whatsapp.png';
 
 function Indication() {
@@ -25,7 +26,7 @@ function Indication() {
                 <a href={whatsappLink}>
                   <img
                     className='profile-image'
-                    src={p1}
+                    src={p3}
                     alt='Nome do Usuário'
                   />
                 </a>

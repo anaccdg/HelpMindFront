@@ -11,6 +11,10 @@ function Indication() {
   // Substitua "NUMERO_DE_TELEFONE" pelo número de telefone real, incluindo o código de área e código do país, sem espaços ou caracteres especiais.
   const whatsappLink = 'https://api.whatsapp.com/send?phone=NUMERO_DE_TELEFONE';
 
+  const text = ['Sou a Laiza, psicóloga especialista em Terapia Cognitivo Comportamental, experiência voltada principalmente a tratamento de ansiedade e depressão. Ajudar pessoas a encontrar seu ponto de equilíbrio é minha verdadeira paixão.',
+                'Sou uma psicóloga que trabalha com a abordagem comportamental. Meu trabalho envolve compreender e transformar comportamentos, promovendo o bem-estar e o crescimento pessoal.'
+                ];
+
   return (
     <div className='container'>
       <div
@@ -41,7 +45,7 @@ function Indication() {
             </div>
           </div>
           <h2 className='name primeira'>Fabiane Garbato</h2>
-          <p className='description description1'>Sou a Dra. PsicóGPT, psicóloga comportamental apaixonada por entender como o ambiente molda nossos comportamentos. Ajudo a promover mudanças positivas e bem-estar.</p>
+          <p className='description description1'>{text[1]}</p>
         </div>
       </div>
       <div
@@ -72,7 +76,7 @@ function Indication() {
             </div>
           </div>
           <h2 className='name segunda'>Laiza Stefankowski</h2>
-          <p className='description description2'>Sou a Dra. PsicóGPT, psicóloga comportamental apaixonada por entender como o ambiente molda nossos comportamentos. Ajudo a promover mudanças positivas e bem-estar.</p>
+          <p className='description description2'>{text[0]}</p>
         </div>
       </div>
     </div>

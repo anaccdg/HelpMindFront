@@ -125,8 +125,28 @@
   height: 84px;
   transition: transform 0.2s; 
   margin-top: 1610px;
+  margin-left: -100%;
+  font-size: 24px;
+}
+
+.indication_button{
+  background-color: #63ACBB;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  line-height: 80px;
+  width: 10%; 
+  height: 84px;
+  transition: transform 0.2s; 
+  margin-top: 1400px;
   margin-left: 0px;
   font-size: 24px;
+}
+
+.indication_button:hover {
+  transform: scale(1.05); 
 }
 
 .newConversation_button:hover {

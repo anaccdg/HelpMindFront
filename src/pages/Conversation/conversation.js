@@ -100,6 +100,7 @@ function Conversation() {
       <div className="background">
         <div className="header">
         <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
+          <Link to="/indication" className="indication_button">Psicólogas</Link>
           <Link to="/" className="newConversation_button">Voltar ao Menu</Link>
           <div className="img_logo"></div>
           <h1 className="apelido">{apelido}</h1>
@@ -134,7 +135,6 @@ function Conversation() {
           />
           <div className="send_button" onClick={handleSendMessage}></div>
           <button className="simulate_button" onClick={simulateReceivedMessage}>
-            Simular Recebida
           </button>
         </div>
       </div>

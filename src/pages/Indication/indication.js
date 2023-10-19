@@ -9,8 +9,9 @@ function Indication() {
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
 
-  // Substitua "NUMERO_DE_TELEFONE" pelo número de telefone real, incluindo o código de área e código do país, sem espaços ou caracteres especiais.
-  const whatsappLink = 'https://api.whatsapp.com/send?phone=NUMERO_DE_TELEFONE';
+  const whatsappLink = ['https://api.whatsapp.com/send?phone=5511950058629&text=Olá%20Fabiane!%20Vim%20através%20do%20HelpMind%20e%20gostaria%20de%20mais%20informações%20sobre%20o%20seu%20trabalho.',
+                        'https://api.whatsapp.com/send?phone=5541995554587&text=Olá%20Laiza!%20Vim%20através%20do%20HelpMind%20e%20gostaria%20de%20mais%20informações%20sobre%20o%20seu%20trabalho.'
+                        ];
 
   const text = ['Sou a Laiza, psicóloga especialista em Terapia Cognitivo Comportamental, experiência voltada principalmente a tratamento de ansiedade e depressão. Ajudar pessoas a encontrar seu ponto de equilíbrio é minha verdadeira paixão.',
                 'Sou uma psicóloga que trabalha com a abordagem comportamental. Meu trabalho envolve compreender e transformar comportamentos, promovendo o bem-estar e o crescimento pessoal.'
@@ -35,7 +36,7 @@ function Indication() {
           <div className="image-container">
             <div className={`image-flip ${isHovered1 ? 'hovered' : ''}`}>
               <div className='image-front'>
-                <a href={whatsappLink}>
+                <a href={whatsappLink[0]} target="_blank">
                   <img
                     className='profile-image'
                     src={p3}
@@ -44,11 +45,13 @@ function Indication() {
                 </a>
               </div>
               <div className='image-back'>
-                <img
-                  className='profile-image'
-                  src={p2}
-                  alt='Nome do Usuário'
-                />
+                <a href={whatsappLink[0]} target="_blank">
+                  <img
+                    className='profile-image'
+                    src={p2}
+                    alt='Nome do Usuário'
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -66,7 +69,7 @@ function Indication() {
           <div className="image-container">
             <div className={`image-flip ${isHovered2 ? 'hovered' : ''}`}>
               <div className='image-front'>
-                <a href={whatsappLink}>
+                <a href={whatsappLink[1]} target="_blank">
                   <img
                     className='profile-image image-center'
                     src={p1}
@@ -75,11 +78,13 @@ function Indication() {
                 </a>
               </div>
               <div className='image-back'>
-                <img
-                  className='profile-image image-center'
-                  src={p2}
-                  alt='Nome do Usuário'
-                />
+                <a href={whatsappLink[1]} target="_blank">
+                  <img
+                    className='profile-image image-center'
+                    src={p2}
+                    alt='Nome do Usuário'
+                  />
+                </a>
               </div>
             </div>
           </div>

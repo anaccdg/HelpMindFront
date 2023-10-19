@@ -26,8 +26,9 @@
     width: 150px;
     height: 150px;
     display: flex;
-    justify-content: center; /* Adicione esta linha para centralizar horizontalmente */
+    justify-content: center; 
     align-items: center;
+    margin-left: 40%;
   }
   
   .image-flip {

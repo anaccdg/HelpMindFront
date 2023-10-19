@@ -3,6 +3,7 @@ import './indication.css';
 import p1 from '../../images/p1.jpg';
 import p3 from '../../images/p3.jpg';
 import p2 from '../../images/whatsapp.png';
+import { Link } from 'react-router-dom';
 
 function Indication() {
   const [isHovered1, setIsHovered1] = useState(false);
@@ -17,6 +18,13 @@ function Indication() {
 
   return (
     <div className='container'>
+       <div className="header">
+          <h2 className='titulo'>PARCEIROS</h2>
+          <div className="content">
+              <Link to="/" className="back_button"></Link>
+              <div className="img_logo"></div>
+          </div>
+        </div>
       <div
         className={`card top ${isHovered1 ? 'hovered' : ''}`}
         style={{ backgroundColor: '#5bc0be' }}

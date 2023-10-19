@@ -15,3 +15,14 @@
     align-items: center;
     flex-direction: column;
   }
+
+  ::selection {
+    background-color: #00f1ed; 
+    color: rgb(0, 0, 0); 
+  }
+  
+  ::selected {
+    background-color: #00f1ed; 
+    color: rgb(0, 0, 0); 
+  }
+  

@@ -8,7 +8,7 @@
   .card {
     width: 50%;
     display: inline-block;
-    text-align: center; /* Adicione esta linha para alinhar o conteúdo no centro */
+    text-align: center; 
   }
   
   .top {

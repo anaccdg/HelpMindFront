@@ -34,7 +34,7 @@ function Conversation() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [mensagemFinal, setNewMessageFinal] = useState('');
-  const [showIndicationButton, setShowIndicationButton] = useState(false); // Novo estado
+  const [showIndicationButton, setShowIndicationButton] = useState(false);
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -42,14 +42,15 @@ function Conversation() {
       ultimaMensagem(mensagem);
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
-      simulateReceivedMessage(mensagem);
 
-      // Verifique se a mensagem do usuário contém a palavra-chave para indicação
-      if (mensagem.toLowerCase().includes('quero indicações')) {
+      const keywordRegex = /quero indicações|quero indicação de profissionais|quero indicação de psicóloga/i;
+
+      if (keywordRegex.test(mensagem)) {
         setShowIndicationButton(true);
-      } else {
-        setShowIndicationButton(false);
+        return; 
       }
+
+      simulateReceivedMessage(mensagem);
     } else {
       showMessageWarn(messageError);
     }
@@ -117,9 +118,11 @@ function Conversation() {
                 {message.text}
               </div>
             ))}
-            {showIndicationButton && ( // Renderize o botão de indicação condicionalmente
+            {showIndicationButton && (
               <div className={`message received`}>
-                <Link to="/indication" className="indication_button">Profissionais</Link>
+                <Link to="/indication" className={`indication_button small`}>
+                  Profissionais
+                </Link>
               </div>
             )}
           </div>

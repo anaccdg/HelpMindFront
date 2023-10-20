@@ -96,18 +96,27 @@
   border-radius: 8px;
   display: inline-block;
   text-align: center;
-  line-height: 80px;
-  font-size: 24px;
-  width: 10%; 
-  height: 84px;
-  transition: transform 0.2s; 
+  transition: transform 0.2s;
   margin-top: 10px;
   margin-left: 0px;
+  font-size: 24px;
+  padding: 8px 16px; /* Aumente o padding para tornar o botão maior */
+  width: auto; /* Deixe o tamanho se ajustar ao conteúdo */
+  line-height: normal; /* Redefina a altura da linha para ajustar ao conteúdo */
 }
 
 .indication_button:hover {
   transform: scale(1.05); 
 }
+
+.small {
+  font-size: 12px;
+  padding: 5px 10px;
+  line-height: normal;
+  width: auto;
+  height: auto;
+}
+
 
 .input-container {
   display: flex;
@@ -239,6 +248,7 @@
   height: 85%;
   object-fit: cover;
 }
+
 
 @media screen and (max-width: 1024px) {
   .message-container {

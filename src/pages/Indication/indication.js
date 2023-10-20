@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './indication.css';
-import p1 from '../../images/p1.jpg';
+import p1 from '../../images/p1.jpeg';
 import p3 from '../../images/p3.jpg';
 import p2 from '../../images/whatsapp.png';
 import { Link } from 'react-router-dom';

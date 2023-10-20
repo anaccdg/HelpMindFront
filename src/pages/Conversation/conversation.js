@@ -7,8 +7,7 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
-import {showMessageWarn} from '../Utils/utils.js';
-
+import { showMessageWarn } from '../Utils/utils.js';
 
 function Conversation() {
   const location = useLocation();
@@ -16,25 +15,26 @@ function Conversation() {
   const apelido = searchParams.get('apelido');
   let avatar = searchParams.get('avatar');
 
-  const messageError = 'Por favor, digite uma mensagem antes de enviar'
+  const messageError = 'Por favor, digite uma mensagem antes de enviar';
 
-  if (avatar === "dog1"){
+  if (avatar === "dog1") {
     avatar = dog1;
-  } else if (avatar === "dog2"){
+  } else if (avatar === "dog2") {
     avatar = dog2;
-  } else if (avatar === "dog3"){
+  } else if (avatar === "dog3") {
     avatar = dog3;
-  } else if (avatar === "cat1"){
+  } else if (avatar === "cat1") {
     avatar = cat1;
-  } else if (avatar === "cat2"){
+  } else if (avatar === "cat2") {
     avatar = cat2;
-  } else if (avatar === "cat3"){
+  } else if (avatar === "cat3") {
     avatar = cat3;
   }
 
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [mensagemFinal, setNewMessageFinal] = useState('');
+  const [showIndicationButton, setShowIndicationButton] = useState(false); // Novo estado
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -43,6 +43,13 @@ function Conversation() {
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
       simulateReceivedMessage(mensagem);
+
+      // Verifique se a mensagem do usuário contém a palavra-chave para indicação
+      if (mensagem.toLowerCase().includes('quero indicações')) {
+        setShowIndicationButton(true);
+      } else {
+        setShowIndicationButton(false);
+      }
     } else {
       showMessageWarn(messageError);
     }
@@ -53,10 +60,9 @@ function Conversation() {
       handleSendMessage();
     }
   };
-  
 
   const ultimaMensagem = (mensagem) => {
-    setNewMessageFinal(mensagem)
+    setNewMessageFinal(mensagem);
   };
 
   const simulateReceivedMessage = (mensagem) => {
@@ -70,15 +76,15 @@ function Conversation() {
         mensagemUsuario: mensagem,
       }),
     };
-  
+
     fetch('http://127.0.0.1:5000/api/conversation_chat', requestOptions)
       .then(response => {
-        if (response.ok) {        
+        if (response.ok) {
           const contentType = response.headers.get('content-type');
-          
-          if (contentType && contentType.includes('application/json')) {            
+
+          if (contentType && contentType.includes('application/json')) {
             return response.json();
-          } else {            
+          } else {
             return response.text();
           }
         } else {
@@ -93,14 +99,12 @@ function Conversation() {
         console.error('Erro ao fazer a chamada da API', error);
       });
   };
-  
 
   return (
     <div>
       <div className="background">
         <div className="header">
-        <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
-          <Link to="/indication" className="indication_button">Profissionais</Link>
+          <div className="img_usuario"><img src={avatar} className="avatar-image" /></div>
           <Link to="/" className="newConversation_button">Voltar ao Menu</Link>
           <div className="img_logo"></div>
           <h1 className="apelido">{apelido}</h1>
@@ -113,6 +117,11 @@ function Conversation() {
                 {message.text}
               </div>
             ))}
+            {showIndicationButton && ( // Renderize o botão de indicação condicionalmente
+              <div className={`message received`}>
+                <Link to="/indication" className="indication_button">Profissionais</Link>
+              </div>
+            )}
           </div>
         </div>
         <div className="input-container">
@@ -134,8 +143,7 @@ function Conversation() {
             }}
           />
           <div className="send_button" onClick={handleSendMessage}></div>
-          <button className="simulate_button" onClick={simulateReceivedMessage}>
-          </button>
+          <button className="simulate_button" onClick={simulateReceivedMessage}></button>
         </div>
       </div>
     </div>

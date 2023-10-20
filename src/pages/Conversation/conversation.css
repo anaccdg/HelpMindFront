@@ -7,19 +7,17 @@
   background: #5BC0BE;
 }
 
-.apelido{   
+.apelido {   
   position: absolute;
   width: auto;
   height: 42px;
   left: 176px;
   top: 35px;
-
   font-family: 'Archivo';
   font-style: normal;
   font-weight: 700;
   font-size: 36px;
   line-height: 42px;
-
   color: #FFFFFF;
 }
 
@@ -39,8 +37,8 @@
   flex-direction: column;
   align-items: center;
   margin-top: 0; 
-  }
-  
+}
+
 .message-container {
   display: flex;
   flex-direction: column;
@@ -56,7 +54,6 @@
   width: calc(70% + 0px); 
 }
 
-
 .message-container::-webkit-scrollbar {
   width: 10px; 
 }
@@ -70,7 +67,7 @@
   background-color: #d1e9e8; 
   border-radius: 5px; 
 }
-  
+
 .message {
   max-width: 70%;
   margin: 5px 10px;
@@ -92,13 +89,33 @@
   font-size: 24px; 
 }
 
-  
+.indication_button {
+  background-color: #63ACBB;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 8px;
+  display: inline-block;
+  text-align: center;
+  line-height: 80px;
+  font-size: 24px;
+  width: 10%; 
+  height: 84px;
+  transition: transform 0.2s; 
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+.indication_button:hover {
+  transform: scale(1.05); 
+}
+
 .input-container {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: -80px; 
 }
+
   
 .back_button{
   position: absolute;

@@ -90,19 +90,17 @@
 }
 
 .indication_button {
-  background-color: #63ACBB;
-  text-decoration: none;
+  /* background-color: #63ACBB; */
   color: #fff;
   border-radius: 8px;
-  display: inline-block;
-  text-align: center;
+  /* display: inline-block; */
+  /* text-align: center; */
   transition: transform 0.2s;
-  margin-top: 10px;
+  /* margin-top: 10px; */
   margin-left: 0px;
-  font-size: 24px;
-  padding: 8px 16px; /* Aumente o padding para tornar o botão maior */
-  width: auto; /* Deixe o tamanho se ajustar ao conteúdo */
-  line-height: normal; /* Redefina a altura da linha para ajustar ao conteúdo */
+  font-size: 20px;
+  padding: 12px 128px; 
+  width: auto; 
 }
 
 .indication_button:hover {
@@ -139,7 +137,7 @@
   background-position: center;
 }
 
-.newConversation_button{
+/* .newConversation_button{
   background-color: #63ACBB;
   text-decoration: none;
   color: #fff;
@@ -153,26 +151,34 @@
   margin-top: 1610px;
   margin-left: -100%;
   font-size: 24px;
-}
+} */
 
-.indication_button{
+.indication_button {
   background-color: #63ACBB;
   text-decoration: none;
   color: #fff;
   border-radius: 8px;
   display: inline-block;
   text-align: center;
-  line-height: 80px;
-  width: 10%; 
-  height: 84px;
-  transition: transform 0.2s; 
-  margin-top: 1400px;
+  /* line-height: 80px;  */
+  width: 10%;
+  transition: transform 0.2s;
+  margin-top: 0; 
   margin-left: 0px;
   font-size: 24px;
+  height: 50px; 
+  font-family: 'Archivo';
 }
 
 .indication_button:hover {
   transform: scale(1.05); 
+}
+
+.small-button {
+  font-size: 22px; 
+  padding: 6px 12px; 
+  width: auto; 
+  justify-content: center;
 }
 
 .newConversation_button:hover {

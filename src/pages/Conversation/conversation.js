@@ -115,16 +115,14 @@ function Conversation() {
           <div className="message-container">
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.sender}`}>
-                {message.text}
-              </div>
-            ))}
-            {showIndicationButton && (
-              <div className={`message received`}>
-                <Link to="/indication" className={`indication_button small`}>
+              {message.text}
+              {message.text.toLowerCase() === 'indicar profissional' && ( 
+                <Link to="/indication" className={`indication_button small-button`}>
                   Profissionais
                 </Link>
-              </div>
-            )}
+              )}
+            </div>                 
+            ))}
           </div>
         </div>
         <div className="input-container">

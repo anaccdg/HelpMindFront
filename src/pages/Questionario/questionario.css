@@ -24,7 +24,7 @@
 
 .form_quest-container {
   width: 1490px;
-  height: 1050px;
+  height: 900px;
   flex-shrink: 0;
   border-radius: 8px;
   border: 1px solid var(--back-lines-in-white, #E6E6F0);

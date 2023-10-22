@@ -90,13 +90,9 @@
 }
 
 .indication_button {
-  /* background-color: #63ACBB; */
   color: #fff;
   border-radius: 8px;
-  /* display: inline-block; */
-  /* text-align: center; */
   transition: transform 0.2s;
-  /* margin-top: 10px; */
   margin-left: 0px;
   font-size: 20px;
   padding: 12px 128px; 
@@ -137,7 +133,7 @@
   background-position: center;
 }
 
-/* .newConversation_button{
+.newConversation_button{
   background-color: #63ACBB;
   text-decoration: none;
   color: #fff;
@@ -148,10 +144,10 @@
   width: 10%; 
   height: 84px;
   transition: transform 0.2s; 
-  margin-top: 1610px;
-  margin-left: -100%;
+  margin-top: 1600px;
+  margin-left: 0%;
   font-size: 24px;
-} */
+}
 
 .indication_button {
   background-color: #63ACBB;
@@ -160,7 +156,6 @@
   border-radius: 8px;
   display: inline-block;
   text-align: center;
-  /* line-height: 80px;  */
   width: 10%;
   transition: transform 0.2s;
   margin-top: 0; 

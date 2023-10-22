@@ -34,7 +34,7 @@ function Conversation() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [mensagemFinal, setNewMessageFinal] = useState('');
-  const [showIndicationButton, setShowIndicationButton] = useState(false);
+  const palavrasChave = ['quero indicação de profissional', 'recomende um especialista', 'profissionais próximos'];
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -42,14 +42,6 @@ function Conversation() {
       ultimaMensagem(mensagem);
       setMessages([...messages, { text: newMessage, sender: 'user' }]);
       setNewMessage('');
-
-      const keywordRegex = /quero indicações|quero indicação de profissionais|quero indicação de psicóloga/i;
-
-      if (keywordRegex.test(mensagem)) {
-        setShowIndicationButton(true);
-        return; 
-      }
-
       simulateReceivedMessage(mensagem);
     } else {
       showMessageWarn(messageError);
@@ -94,7 +86,23 @@ function Conversation() {
         }
       })
       .then(data => {
-        setMessages(prevMessages => [...prevMessages, { text: data, sender: 'received' }]);
+        const mensagemLower = mensagem.toLowerCase();
+        if (palavrasChave.some(palavraChave => mensagemLower.includes(palavraChave))) {
+          setMessages(prevMessages => [
+            ...prevMessages,
+            { text: "Claro! Clique no botão abaixo para acessar nossa lista de profissionais:", sender: 'received' },
+            { text: (
+              <Link to="/indication" className="indication_button small-button">
+                Profissionais
+              </Link>
+            ), sender: 'received' }
+          ]);
+        } else {
+          setMessages(prevMessages => [
+            ...prevMessages,
+            { text: data, sender: 'received' }
+          ]);
+        }
       })
       .catch(error => {
         console.error('Erro ao fazer a chamada da API', error);
@@ -115,13 +123,8 @@ function Conversation() {
           <div className="message-container">
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.sender}`}>
-              {message.text}
-              {message.text.toLowerCase() === 'indicar profissional' && ( 
-                <Link to="/indication" className={`indication_button small-button`}>
-                  Profissionais
-                </Link>
-              )}
-            </div>                 
+                {message.text}
+              </div>                 
             ))}
           </div>
         </div>

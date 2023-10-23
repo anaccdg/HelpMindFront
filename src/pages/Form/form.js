@@ -13,7 +13,7 @@ import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { Link } from 'react-router-dom';
 import './form.css';
-import {showMessageError, showMessageWarn} from '../Utils/utils.js';
+import {showMessageError, showMessageWarn} from '../utils/utils.js';
 
 function Form() {
     const [avatar, setAvatar] = useState('');

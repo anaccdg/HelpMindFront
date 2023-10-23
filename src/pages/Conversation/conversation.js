@@ -7,7 +7,7 @@ import dog3 from "../../images/form/dog3.png";
 import cat1 from "../../images/form/cat1.png";
 import cat2 from "../../images/form/cat2.png";
 import cat3 from "../../images/form/cat3.png";
-import { showMessageWarn } from '../Utils/utils.js';
+import { showMessageWarn } from '../utils/utils.js';
 
 function Conversation() {
   const location = useLocation();

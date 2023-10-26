@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './conversation.css';
 import { Link, useLocation } from 'react-router-dom';
 import dog1 from "../../images/form/dog1.png";
@@ -17,6 +17,28 @@ function Conversation() {
 
   const messageError = 'Por favor, digite uma mensagem antes de enviar';
 
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState('');
+  const [mensagemFinal, setNewMessageFinal] = useState('');
+  const palavrasChave = ['quero indicação de profissional', 'recomende um especialista', 'profissionais próximos'];
+
+  const textareaRef = useRef(null);
+
+  function handleTextareaChange() {
+    const textarea = textareaRef.current;
+  
+    const minHeight = 84;
+    const maxHeight = 150;
+  
+    textarea.style.height = minHeight + 'px'; 
+  
+    if (textarea.scrollHeight > maxHeight) {
+      textarea.style.height = maxHeight + 'px';
+    } else {
+      textarea.style.height = textarea.scrollHeight + 'px';
+    }
+  }
+
   if (avatar === "dog1") {
     avatar = dog1;
   } else if (avatar === "dog2") {
@@ -30,11 +52,6 @@ function Conversation() {
   } else if (avatar === "cat3") {
     avatar = cat3;
   }
-
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState('');
-  const [mensagemFinal, setNewMessageFinal] = useState('');
-  const palavrasChave = ['quero indicação de profissional', 'recomende um especialista', 'profissionais próximos'];
 
   const handleSendMessage = () => {
     if (newMessage.trim() !== '') {
@@ -131,6 +148,7 @@ function Conversation() {
         <div className="input-container">
           <textarea
             className="text_box"
+            ref={textareaRef}
             placeholder="Digite aqui sua mensagem"
             value={newMessage}
             onChange={(e) => {
@@ -138,6 +156,7 @@ function Conversation() {
               const formattedValue = inputValue.charAt(0).toUpperCase() + inputValue.slice(1);
               setNewMessage(formattedValue);
               ultimaMensagem(formattedValue);
+              handleTextareaChange(e);
             }}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && !e.shiftKey) {

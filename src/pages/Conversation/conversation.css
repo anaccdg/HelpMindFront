@@ -250,6 +250,22 @@
   object-fit: cover;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.typing-indicator::after {
+  content: '...';
+  display: inline-block;
+  margin-left: 5px;
+  animation: bounce 1s infinite;
+}
+
 @media screen and (max-width: 1024px) {
   .message-container {
     width: 100%;

@@ -78,7 +78,7 @@ function Conversation() {
   const simulateReceivedMessage = (mensagem) => {
     setMessages(prevMessages => [
       ...prevMessages,
-      { text: "Digitando...", sender: 'received', id: Date.now() } 
+      { text: "", sender: 'received', id: Date.now() } 
     ]);
   
     const requestOptions = {
@@ -147,8 +147,12 @@ function Conversation() {
           <div className="message-container">
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.sender}`}>
-                {message.text}
-              </div>                 
+                {message.text === "" ? (
+                  <span className="typing-indicator">{message.text}</span>
+                ) : (
+                  message.text
+                )}
+              </div>
             ))}
           </div>
         </div>

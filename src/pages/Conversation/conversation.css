@@ -259,11 +259,9 @@
   }
 }
 
-.typing-indicator::after {
-  content: '...';
+.dot {
+  animation: bounce 1.2s infinite;
   display: inline-block;
-  margin-left: 5px;
-  animation: bounce 1s infinite;
 }
 
 @media screen and (max-width: 1024px) {

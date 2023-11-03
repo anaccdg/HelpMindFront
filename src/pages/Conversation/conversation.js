@@ -148,7 +148,12 @@ function Conversation() {
             {messages.map((message, index) => (
               <div key={index} className={`message ${message.sender}`}>
                 {message.text === "" ? (
-                  <span className="typing-indicator">{message.text}</span>
+                  <span className="typing-indicator">
+                    {message.text}
+                    <span className="dot" style={{ animationDelay: "0s" }}>.</span>
+                    <span className="dot" style={{ animationDelay: "0.2s" }}>.</span>
+                    <span className="dot" style={{ animationDelay: "0.4s" }}>.</span>
+                  </span>
                 ) : (
                   message.text
                 )}

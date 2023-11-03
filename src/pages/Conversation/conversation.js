@@ -76,6 +76,11 @@ function Conversation() {
   };
 
   const simulateReceivedMessage = (mensagem) => {
+    setMessages(prevMessages => [
+      ...prevMessages,
+      { text: "Digitando...", sender: 'received', id: Date.now() } 
+    ]);
+  
     const requestOptions = {
       method: 'POST',
       mode: 'cors',
@@ -86,46 +91,48 @@ function Conversation() {
         mensagemUsuario: mensagem,
       }),
     };
-
+  
     fetch('http://127.0.0.1:5000/api/conversation_chat', requestOptions)
       .then(response => {
         if (response.ok) {
           const contentType = response.headers.get('content-type');
-
           if (contentType && contentType.includes('application/json')) {
             return response.json();
           } else {
             return response.text();
           }
         } else {
-          console.error('Erro ao enviar os dados para a API');
-          return null;
+          throw new Error('Erro ao enviar os dados para a API');
         }
       })
       .then(data => {
-        const mensagemLower = mensagem.toLowerCase();
-        if (palavrasChave.some(palavraChave => mensagemLower.includes(palavraChave))) {
-          setMessages(prevMessages => [
-            ...prevMessages,
-            { text: "Claro! Clique no botão abaixo para acessar nossa lista de profissionais:", sender: 'received' },
-            { text: (
-              <Link to="/indication" className="indication_button small-button">
-                Profissionais
-              </Link>
-            ), sender: 'received' }
-          ]);
-        } else {
-          setMessages(prevMessages => [
-            ...prevMessages,
-            { text: data, sender: 'received' }
-          ]);
-        }
+        setMessages(prevMessages => {
+          let newMessages = prevMessages.filter(msg => msg.id !== prevMessages[prevMessages.length - 1].id);
+  
+          const mensagemLower = mensagem.toLowerCase();
+          if (palavrasChave.some(palavraChave => mensagemLower.includes(palavraChave))) {
+            newMessages = newMessages.concat([
+              { text: "Claro! Clique no botão abaixo para acessar nossa lista de profissionais:", sender: 'received' },
+              { text: (
+                  <Link to="/indication" className="indication_button small-button">
+                    Profissionais
+                  </Link>
+                ), sender: 'received' }
+            ]);
+          } else {
+            newMessages = newMessages.concat({ text: data, sender: 'received' });
+          }
+  
+          return newMessages;
+        });
       })
       .catch(error => {
+        setMessages(prevMessages => prevMessages.filter(msg => msg.id !== prevMessages[prevMessages.length - 1].id)
+          .concat({ text: 'Erro ao receber dados. Tente novamente mais tarde.', sender: 'received' }));
         console.error('Erro ao fazer a chamada da API', error);
       });
   };
-
+  
   return (
     <div>
       <div className="background">

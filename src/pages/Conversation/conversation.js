@@ -20,7 +20,26 @@ function Conversation() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
   const [mensagemFinal, setNewMessageFinal] = useState('');
-  const palavrasChave = ['quero indicação de profissional', 'recomende um especialista', 'profissionais próximos'];
+  const palavrasChave = [
+    "me indique um profissional",
+    "me indique um profissional!",
+    "me indique um profissional...",
+    "me indique um profissional?",
+    "me indique, um profissional.",
+    "me indique, um profissional!",
+    "me indique, um profissional...",
+    "me indique, um profissional?",
+    "me indique: um profissional.",
+    "me indique: um profissional!",
+    "me indique: um profissional...",
+    "me indique: um profissional?",
+    "preciso de ajuda; me indique um profissional.",
+    "na área de serviços; me indique um profissional!",
+    "para resolver meu problema; me indique um profissional...",
+    "quem é o melhor da cidade; me indique um profissional?"
+  ];
+  
+
 
   const textareaRef = useRef(null);
 
